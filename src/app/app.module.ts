@@ -9,12 +9,18 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { WelcomeComponent } from './welcome/welcome.component';
 import { HeaderComponent } from './navigation/header/header.component';
+import { TrainingComponent } from './training/training.component';
+import { TrainingListComponent } from './training/training-list/training-list.component';
+import { ExercisesComponent } from './exercises/exercises.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     WelcomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    TrainingComponent,
+    TrainingListComponent,
+    ExercisesComponent
   ],
   imports: [
     BrowserModule,
