@@ -1,8 +1,30 @@
 <div>
-  <h2>HEAVY ARMOR <mat-icon>fitness_center</mat-icon></h2>
+  <section class="auth-items">
+    <h2>HEAVY ARMOR <mat-icon>fitness_center</mat-icon></h2>
+    <div>
+      <button mat-icon-button [matMenuTriggerFor]="menu">
+          <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item>
+          <mat-icon>person_add</mat-icon>
+          <span>Inscription</span>
+        </button>
+        <button mat-menu-item >
+          <mat-icon>person</mat-icon>
+          <span>Login</span>
+        </button>
+        <button mat-menu-item disabled>
+          <mat-icon>power_settings_new</mat-icon>
+          <span>Logout</span>
+        </button>
+      </mat-menu>
+    </div>
+  </section>
+
   <ul class="navigation-items">
     <li routerLinkActive="active"><a routerLink="/training">Séances</a></li>
-    <li routerLinkActive="active"><a routerLink="/exercises">Exercises</a></li>
+    <li routerLinkActive="active"><a routerLink="/exercises">Exercices</a></li>
     <li routerLinkActive="active"><a routerLink="/statistical">Statistiques</a></li>
   </ul>
 </div>
