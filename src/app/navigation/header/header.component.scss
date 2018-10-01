@@ -1,13 +1,14 @@
 @import "../../../scss/variables";
 
 div {
+  background-color: $backgroundColorNav;
   h2 {
     padding-top: 20px;
-    color: $button;
+    color: $textbackgroundColor;
     text-align: center;
   }
 }
-.navigation-items{
+ul.navigation-items{
   padding: 0;
   list-style:none;
   display: flex;
@@ -15,9 +16,18 @@ div {
   justify-content: space-evenly;
   li {
     flex-grow: 1; /* default 0 */
-    margin: 0 5px;
-    button {
+    text-align: center;
+    a {
+      box-sizing: border-box;
+      color: $textbackgroundColor;
+      text-decoration: none;
+      display: inline-block;
+      height: 100%;
       width: 100%;
+      padding: 15px 0;
+    }
+    &:hover, &.active {
+      border-bottom: $textbackgroundColor solid 2px;
     }
   }
 }
