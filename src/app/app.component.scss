@@ -2,14 +2,9 @@
 
 #container {
   box-sizing: border-box;
-  max-width: 500px;
+  max-width: 800px;
   min-height: 100vh;
   margin: 0 auto;
   background-color: $backgroundColor;
   padding: 5px;
-  h2 {
-    padding-top: 20px;
-    color: $button;
-    text-align: center;
-  }
 }

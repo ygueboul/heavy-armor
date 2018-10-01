@@ -1,3 +1,12 @@
+@import "../../../scss/variables";
+
+div {
+  h2 {
+    padding-top: 20px;
+    color: $button;
+    text-align: center;
+  }
+}
 .navigation-items{
   padding: 0;
   list-style:none;

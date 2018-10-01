@@ -9,9 +9,17 @@ h2 {
   margin: 0;
   padding: 0;
 }
-p {
-  color: white;
+
+h1, h2, h3, h4, h5, h6, p {
+  color: $textbackgroundColor;
 }
+
+.item{
+  h1, h2, h3, h4, h5, h6, p {
+    color: $textbackgroundColorItems;
+  }
+}
+
 
 
 

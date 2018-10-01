@@ -12,6 +12,7 @@ import { HeaderComponent } from './navigation/header/header.component';
 import { TrainingComponent } from './training/training.component';
 import { TrainingListComponent } from './training/training-list/training-list.component';
 import { ExercisesComponent } from './exercises/exercises.component';
+import { ExercisesListComponent } from './exercises/exercises-list/exercises-list.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ExercisesComponent } from './exercises/exercises.component';
     HeaderComponent,
     TrainingComponent,
     TrainingListComponent,
-    ExercisesComponent
+    ExercisesComponent,
+    ExercisesListComponent
   ],
   imports: [
     BrowserModule,
