@@ -1,14 +1,7 @@
-
-
-<!-- <a style="cursor: pointer;" routerLinkActive="active">
+<a>
   <img [src]="exercise.imagePath" alt="{{ exercise.name }}">
   <div>
     <h3>{{ exercise.name | titlecase }}</h3>
-    <p>{{ exercise.description | slice:0:100 }}...</p>
+    <p>{{ exercise.description | slice:0:85 }}...</p>
   </div>
-</a> -->
-<div>
-  <img [src]="exercise.imagePath" alt="{{ exercise.name }}">
-  <h3>{{ exercise.name | titlecase }}</h3>
-  <p>{{ exercise.description | slice:0:100 }}...</p>
-</div>
+</a>

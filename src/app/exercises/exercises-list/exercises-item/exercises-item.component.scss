@@ -1,36 +1,32 @@
-// @import "../../../../scss/variables";
+@import "../../../../scss/variables";
 
-// :host {
-//   display: flex;
-//   flex-direction: row;
-//   a {
-//     flex-grow: 1;
-//     margin: 10px 10px;
-//     padding: 10px;
-//     background-color: $backgroundColorItems;
-
-//     div {
-//       h3 {
-//         margin : 0;
-//         font-weight: 300;
-//       }
-//       p {
-//         margin-bottom: 0;
-//         margin-right: 110px;
-//         color :$textbackgroundColorItems;
-//       }
-//     }
-//     img {
-//       background-color: antiquewhite;
-//       max-width: 100px;
-//       float: right;
-//     }
-//   }
-//   &:active {
-//     opacity: 0.5;
-//   }
-// }
-.mat-expansion-panel-body {
-  padding-right: 10px;
-  padding-left: 10px;
+:host {
+  display: flex;
+  flex-direction: row;
+  a {
+    flex-grow: 1;
+    margin: 2px 0px;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    //background-color: $backgroundColorItems;
+    border-radius: 2px;
+    div {
+      h3 {
+        margin : 0;
+        font-weight: 300;
+      }
+      p {
+        margin-bottom: 0;
+        margin-right: 110px;
+        color :$textbackgroundColorItems;
+      }
+    }
+    img {
+      max-width: 120px;
+      float: right;
+    }
+  }
+  &:active {
+    opacity: 0.5;
+  }
 }
