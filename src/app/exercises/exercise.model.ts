@@ -10,14 +10,10 @@ export class Exercise {
   public duration: number;
 
 
-  constructor(name: string,
-              desc: string,
-              series: number = 1,
-              repetition: number = 1,
+  constructor(name: string, desc: string,
+              series: number = 1, repetition: number = 1,
               weight: number = 0,
-              restInner: number = 0,
-              restOuter: number = 0,
-              duration: number = 0,
+              restInner: number = 0, restOuter: number = 0, duration: number = 0,
               imagePath?: string) {
     this.name = name;
     this.description = desc;

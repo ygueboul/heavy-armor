@@ -13,6 +13,7 @@ import { TrainingComponent } from './training/training.component';
 import { TrainingListComponent } from './training/training-list/training-list.component';
 import { ExercisesComponent } from './exercises/exercises.component';
 import { ExercisesListComponent } from './exercises/exercises-list/exercises-list.component';
+import { ExercisesItemComponent } from './exercises/exercises-list/exercises-item/exercises-item.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ExercisesListComponent } from './exercises/exercises-list/exercises-lis
     TrainingComponent,
     TrainingListComponent,
     ExercisesComponent,
-    ExercisesListComponent
+    ExercisesListComponent,
+    ExercisesItemComponent
   ],
   imports: [
     BrowserModule,
