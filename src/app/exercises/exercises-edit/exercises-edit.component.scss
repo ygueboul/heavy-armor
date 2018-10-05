@@ -1,0 +1,17 @@
+h3 {
+  text-align: center;
+}
+.example-form {
+  min-width: 150px;
+  max-width: 500px;
+  margin: 0 auto;
+  .example-container {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 40px;
+  }
+}
+
+
+
+
