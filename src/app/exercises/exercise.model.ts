@@ -14,7 +14,7 @@ export class Exercise {
               series: number = 1, repetition: number = 1,
               weight: number = 0,
               restInner: number = 0, restOuter: number = 0, duration: number = 0,
-              imagePath?: string) {
+              imagePath: string = 'assets/images/exercises/this-is-sparta.jpg') {
     this.name = name;
     this.description = desc;
     this.imagePath = imagePath;

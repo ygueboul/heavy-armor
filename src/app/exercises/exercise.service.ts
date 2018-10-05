@@ -5,7 +5,11 @@ import { Exercise } from './exercise.model';
   providedIn: 'root'
 })
 export class ExerciseService {
-  bodys: String[] = ['pectoraux', 'dos'];
+
+  bodys: String[] = [
+    'pectoraux',
+     'dos'
+  ];
 
   exercises: Array<Exercise[]> = [
     [
@@ -52,6 +56,11 @@ export class ExerciseService {
   }
 
   getExerciseById() {
+  }
+
+  addExercise(exercise) {
+    this.exercises[exercise.body].push(new Exercise(exercise.name, exercise.description));
+    // enregistrement sur la table firebase
   }
 
   getAllBodys() {
