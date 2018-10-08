@@ -28,7 +28,11 @@ export class ExerciseService {
     {name: 'développé décliné',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, imperor incididunt ut labore et dolore magna aliqua.',
       imagePath: 'assets/images/exercises/dips.jpg',
-      series: 1, repetition: 1, weight: 0, restInner: 0, restOuter: 0, duration: 0, deletable: false}
+      series: 1, repetition: 1, weight: 0, restInner: 0, restOuter: 0, duration: 0, deletable: false},
+    {name: 'patate',
+    description: 'tomate',
+      imagePath: 'assets/images/exercises/this-is-sparta.jpg',
+      series: 1, repetition: 1, weight: 0, restInner: 0, restOuter: 0, duration: 0, deletable: true}
     ],
     [
     {name: 'écartés avec haltères',
@@ -63,15 +67,20 @@ export class ExerciseService {
     return this.exercises[idBody][idExercise].deletable;
   }
 
-  addExercise(exercise) {
+  addNewExercise(exercise) {
     this.exercises[exercise.body].push(new Exercise(exercise.name, exercise.description));
     // enregistrement sur la table firebase voir si besoin d'une id dans la base ??????(la j'utilise id du tableau)
   }
 
-  getAllBodys() {
-    return this.bodys;
+  updateExercise() {
+
   }
 
-  getBodyById() {
+  deleteExercise() {
+
+  }
+
+  getAllBodys() {
+    return this.bodys;
   }
 }

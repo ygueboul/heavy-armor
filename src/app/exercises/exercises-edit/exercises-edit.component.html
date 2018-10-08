@@ -1,10 +1,10 @@
-<h3>Ajout d'un nouvel exercice</h3>
-<h3>Modification d'un exercice</h3>
+<h3 *ngIf="!deletable">Ajout d'un nouvel exercice</h3>
+<h3 *ngIf="deletable">Modification d'un exercice</h3>
 
 <form class="form-exercise" (ngSubmit)="onSubmit(ExerciseForm.value)" #ExerciseForm="ngForm">
   <div class="container-exercise">
     <mat-form-field>
-      <input matInput placeholder="Nom de l'exercice" required name="name" ngModel #name="ngModel">
+      <input matInput type="text" placeholder="Nom de l'exercice" required name="name" [ngModel]="exercise?.name" #name="ngModel">
 
       <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
         Nom de l'exercice obligatoire
@@ -13,19 +13,28 @@
 
 
     <mat-form-field>
-      <textarea matInput placeholder="Description" name="description" ngModel #description="ngModel"></textarea>
+      <textarea matInput placeholder="Description" name="description" [ngModel]="exercise?.description"></textarea>
     </mat-form-field>
 
     <mat-form-field>
       <mat-select placeholder="Partie du corps" required name="body" ngModel #body="ngModel">
         <mat-option *ngFor="let body of bodys; let i = index" [value]="i">{{ body }}</mat-option>
       </mat-select>
+      <mat-error *ngIf="body.invalid && (body.dirty || body.touched)">
+        Partie du coprs obligatoire
+      </mat-error>
     </mat-form-field>
 
-    <div>
+    <div class="button-form">
       <button (click)="goToExercises()" mat-raised-button>Annuler</button>
-      <button type="submit" mat-raised-button color="warn" [disabled]="!ExerciseForm.form.valid">Ajouter</button>
+      <button *ngIf="!deletable" type="submit" mat-raised-button color="warn" [disabled]="!ExerciseForm.form.valid">Ajouter</button>
+
+      <button *ngIf="deletable" (click)="deleteExercise()" mat-raised-button>Effacer</button>
+      <button *ngIf="deletable" type="submit" mat-raised-button color="warn" [disabled]="!ExerciseForm.form.valid">Modifier</button>
+
     </div>
   </div>
 </form>
+
+
 
