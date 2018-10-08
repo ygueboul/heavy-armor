@@ -10,7 +10,8 @@ const routes: Routes = [
   { path: '', component: WelcomeComponent },
   { path: 'training', component: TrainingComponent },
   { path: 'exercises', component: ExercisesComponent },
-  { path: 'exercises/edit', component: ExercisesEditComponent },
+  { path: 'exercises/new', component: ExercisesEditComponent },
+  { path: 'exercises/edit/:idBody/:idExercise', component: ExercisesEditComponent },
 ];
 
 @NgModule({

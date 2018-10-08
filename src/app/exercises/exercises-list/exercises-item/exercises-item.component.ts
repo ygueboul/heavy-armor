@@ -8,6 +8,8 @@ import { Exercise } from '../../exercise.model';
 })
 export class ExercisesItemComponent implements OnInit {
   @Input() exercise: Exercise;
+  @Input() indexExercise;
+  @Input() indexBody;
 
   constructor() { }
 
