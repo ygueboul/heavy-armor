@@ -13,6 +13,10 @@ export class ExercisesEditComponent implements OnInit {
   exercise: Exercise;
   deletable = false;
   sub: any;
+  idBody;
+  idExercise;
+
+  selected;
 
 
   constructor(private exerciseService: ExerciseService,
@@ -21,13 +25,14 @@ export class ExercisesEditComponent implements OnInit {
 
   ngOnInit() {
     this.bodys = this.exerciseService.getAllBodys(); // for build select elements
+    this.selected = this.bodys[0];
 
-    const idBody = this.route.snapshot.paramMap.get('idBody');
-    const idExercise = this.route.snapshot.paramMap.get('idExercise');
+    this.idBody = this.route.snapshot.paramMap.get('idBody');
+    this.idExercise = this.route.snapshot.paramMap.get('idExercise');
 
-    if (idBody && idExercise && this.exerciseService.isExerciseDeletable(idBody, idExercise)) {
-      this.deletable = this.exerciseService.isExerciseDeletable(idBody, idExercise);
-      this.exercise = this.exerciseService.getExerciseById(idBody, idExercise);
+    if (this.idBody && this.idExercise && this.exerciseService.isExerciseDeletable(this.idBody, this.idExercise)) {
+      this.deletable = this.exerciseService.isExerciseDeletable(this.idBody, this.idExercise);
+      this.exercise = this.exerciseService.getExerciseById(this.idBody, this.idExercise);
     }
 
     // version async abservable avec firebase
@@ -51,10 +56,21 @@ export class ExercisesEditComponent implements OnInit {
     this.goToExercises();
   }
 
-  deleteExercise() {
-    // delete exercise
-    alert('effacer');
+  deleteExercise(): void {
+    this.exerciseService.deleteExercise(this.idBody, this.idExercise);
     this.goToExercises();
+    // if (confirm("Are you sure you want to delete " + employee.Name + "?")) {
+    //   this._employeeService.DeleteEmployee(employee.EmployeeId).subscribe(
+    //      data => {
+    //        // refresh the list
+    //        this.GetEmployee();
+    //        return true;
+    //      },
+    //      error => {
+    //        console.error("Error deleting Employee!");
+    //      }
+    //   );
+    // }
   }
 
   goToExercises () {

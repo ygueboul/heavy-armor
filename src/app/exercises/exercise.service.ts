@@ -76,8 +76,8 @@ export class ExerciseService {
 
   }
 
-  deleteExercise() {
-
+  deleteExercise(idBody, idExercise) {
+    this.exercises[idBody].splice(idExercise, 1);
   }
 
   getAllBodys() {
