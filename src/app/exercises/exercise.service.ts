@@ -30,7 +30,7 @@ export class ExerciseService {
       imagePath: 'assets/images/exercises/dips.jpg',
       series: 1, repetition: 1, weight: 0, restInner: 0, restOuter: 0, duration: 0, deletable: false},
     {name: 'patate',
-    description: 'tomate',
+    description: 'patate',
       imagePath: 'assets/images/exercises/this-is-sparta.jpg',
       series: 1, repetition: 1, weight: 0, restInner: 0, restOuter: 0, duration: 0, deletable: true}
     ],
@@ -49,7 +49,11 @@ export class ExerciseService {
     {name: 'pompes',
     description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, imperor incididunt ut labore et dolore magna aliqua.',
       imagePath: 'assets/images/exercises/traction.jpg',
-      series: 1, repetition: 1, weight: 0, restInner: 0, restOuter: 0, duration: 0, deletable: false}
+      series: 1, repetition: 1, weight: 0, restInner: 0, restOuter: 0, duration: 0, deletable: false},
+    {name: 'tomate',
+    description: 'tomate',
+      imagePath: 'assets/images/exercises/this-is-sparta.jpg',
+      series: 1, repetition: 1, weight: 0, restInner: 0, restOuter: 0, duration: 0, deletable: true}
     ]
   ];
 

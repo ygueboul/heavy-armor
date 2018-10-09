@@ -11,37 +11,29 @@
       </mat-error>
     </mat-form-field>
 
-
     <mat-form-field>
       <textarea matInput placeholder="Description" name="description" [ngModel]="exercise?.description"></textarea>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Partie du corps" required name="body" ngModel #body="ngModel" [(value)]="selected">
+      <mat-select placeholder="Partie du corps" required name="body" [(ngModel)]="selected" #body="ngModel">
         <mat-option *ngFor="let body of bodys; let i = index" [value]="i">{{ body }}</mat-option>
       </mat-select>
+
       <mat-error *ngIf="body.invalid && (body.dirty || body.touched)">
         Partie du coprs obligatoire
       </mat-error>
     </mat-form-field>
 
 
-        <!-- <select placeholder="Partie du corps" required name="body" ngModel #body="ngModel" [(ngModel)]="selected">
-            <option value="" disabled>Choose a state</option>
-          <option *ngFor="let body of bodys; let i = index" [ngValue]="i" [selected]="i === 0">{{ body }}</option>
-        </select>
-        <p>You selected: {{selected}}</p> -->
-
-
     <div class="button-form">
-
       <button (click)="goToExercises()" mat-raised-button>Annuler</button>
       <button *ngIf="!deletable" type="submit" mat-raised-button color="warn" [disabled]="!ExerciseForm.form.valid">Ajouter</button>
 
       <button *ngIf="deletable" (click)="deleteExercise()" mat-raised-button>Effacer</button>
       <button *ngIf="deletable" type="submit" mat-raised-button color="warn" [disabled]="!ExerciseForm.form.valid">Modifier</button>
-
     </div>
+
   </div>
 </form>
 

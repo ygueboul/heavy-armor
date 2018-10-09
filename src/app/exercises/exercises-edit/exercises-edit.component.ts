@@ -12,11 +12,9 @@ export class ExercisesEditComponent implements OnInit {
   bodys: String[];
   exercise: Exercise;
   deletable = false;
-  sub: any;
   idBody;
   idExercise;
-
-  selected;
+  selected = 0; // partie du corps
 
 
   constructor(private exerciseService: ExerciseService,
@@ -24,13 +22,16 @@ export class ExercisesEditComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.bodys = this.exerciseService.getAllBodys(); // for build select elements
-    this.selected = this.bodys[0];
+    this.bodys = this.exerciseService.getAllBodys(); // for build select option
 
+    // modification
     this.idBody = this.route.snapshot.paramMap.get('idBody');
     this.idExercise = this.route.snapshot.paramMap.get('idExercise');
 
     if (this.idBody && this.idExercise && this.exerciseService.isExerciseDeletable(this.idBody, this.idExercise)) {
+      this.selected = this.idBody; // il ajoute la valeur du body dans le select a modifier mais probleme il ne l'affiche pas
+      console.log(this.selected);
+
       this.deletable = this.exerciseService.isExerciseDeletable(this.idBody, this.idExercise);
       this.exercise = this.exerciseService.getExerciseById(this.idBody, this.idExercise);
     }
