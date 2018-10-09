@@ -10,6 +10,7 @@ import { Exercise } from '../exercise.model';
 export class ExercisesListComponent implements OnInit {
   exercises: Array<Exercise[]>;
   bodys: String[];
+  expand = 0;
 
   constructor(private exerciseService: ExerciseService) { }
 

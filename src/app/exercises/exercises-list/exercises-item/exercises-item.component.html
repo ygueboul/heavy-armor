@@ -1,8 +1,8 @@
 <a *ngIf="exercise.deletable" [routerLink]='["/exercises/edit", indexBody, indexExercise]'>
   <img [src]="exercise.imagePath" alt="{{ exercise.name }}">
   <div>
-    <h3>{{ exercise.name | titlecase }} - <mat-icon>edit</mat-icon></h3>
-    <p>{{ exercise.description | slice:0:85 }}...</p>
+    <h3><span>{{ exercise.name | titlecase }}</span> <mat-icon>edit</mat-icon></h3>
+    <p>{{ exercise.description | slice:0:85 }}</p>
   </div>
 </a>
 
@@ -11,6 +11,6 @@
   <img [src]="exercise.imagePath" alt="{{ exercise.name }}">
   <div>
     <h3>{{ exercise.name | titlecase }}</h3>
-    <p>{{ exercise.description | slice:0:85 }}...</p>
+    <p>{{ exercise.description | slice:0:85 }}</p>
   </div>
 </a>

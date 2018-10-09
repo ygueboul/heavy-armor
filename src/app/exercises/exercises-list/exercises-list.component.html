@@ -1,14 +1,15 @@
 <mat-accordion>
-  <mat-expansion-panel *ngFor="let body of bodys;let indexBody = index">
+  <mat-expansion-panel [expanded]="indexBody === expand" *ngFor="let body of bodys;let indexBody = index">
     <mat-expansion-panel-header>
       <mat-panel-title>
-          <h3>{{ indexBody+1 }} - {{ body | titlecase }}</h3>
+          <h3>{{ body | titlecase }}</h3>
       </mat-panel-title>
     </mat-expansion-panel-header>
 
     <app-exercises-item
       *ngFor="let exercise of exercises[indexBody];let indexExercise = index"
-      [exercise]="exercise" [indexExercise]="indexExercise" [indexBody]="indexBody"></app-exercises-item>
+      [exercise]="exercise" [indexExercise]="indexExercise" [indexBody]="indexBody">
+    </app-exercises-item>
 
   </mat-expansion-panel>
 </mat-accordion>

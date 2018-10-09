@@ -11,7 +11,7 @@ import { Exercise } from '../exercise.model';
 export class ExercisesEditComponent implements OnInit {
   bodys: String[];
   exercise: Exercise;
-  deletable = false;
+  deletable = false; // new = false / edit = false
   idBody;
   idExercise;
   selected = 0; // partie du corps
@@ -30,7 +30,7 @@ export class ExercisesEditComponent implements OnInit {
 
     if (this.idBody && this.idExercise && this.exerciseService.isExerciseDeletable(this.idBody, this.idExercise)) {
       this.selected = this.idBody; // il ajoute la valeur du body dans le select a modifier mais probleme il ne l'affiche pas
-      console.log(this.selected);
+      // console.log(this.selected);
 
       this.deletable = this.exerciseService.isExerciseDeletable(this.idBody, this.idExercise);
       this.exercise = this.exerciseService.getExerciseById(this.idBody, this.idExercise);
@@ -45,15 +45,14 @@ export class ExercisesEditComponent implements OnInit {
     // });
   }
 
-  onSubmit(form) {
+  onSubmit(FormExercise) {
     if (!this.deletable) {
-      this.exerciseService.addNewExercise(form);
-      alert('ajouter');
+      // add newexercise
+      this.exerciseService.addNewExercise(FormExercise);
     } else {
       // edit exercise
-      alert('modifier');
+      this.exerciseService.updateExercise(this.idBody, FormExercise);
     }
-
     this.goToExercises();
   }
 

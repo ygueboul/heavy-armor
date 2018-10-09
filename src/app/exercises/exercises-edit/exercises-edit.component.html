@@ -3,6 +3,7 @@
 
 <form class="form-exercise" (ngSubmit)="onSubmit(ExerciseForm.value)" #ExerciseForm="ngForm">
   <div class="container-exercise">
+    <input type="hidden" name="id" [ngModel]="idExercise">
     <mat-form-field>
       <input matInput type="text" placeholder="Nom de l'exercice" required name="name" [ngModel]="exercise?.name" #name="ngModel">
 
@@ -16,11 +17,11 @@
     </mat-form-field>
 
     <mat-form-field>
-      <mat-select placeholder="Partie du corps" required name="body" [(ngModel)]="selected" #body="ngModel">
+      <mat-select placeholder="Partie du corps" required name="idBody" [(ngModel)]="selected" #idBody="ngModel">
         <mat-option *ngFor="let body of bodys; let i = index" [value]="i">{{ body }}</mat-option>
       </mat-select>
 
-      <mat-error *ngIf="body.invalid && (body.dirty || body.touched)">
+      <mat-error *ngIf="idBody.invalid && (idBody.dirty || idBody.touched)">
         Partie du coprs obligatoire
       </mat-error>
     </mat-form-field>

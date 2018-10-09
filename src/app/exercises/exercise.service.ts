@@ -59,11 +59,11 @@ export class ExerciseService {
 
   constructor() { }
 
-  getAllExercises() {
+  getAllExercises(): Array<Exercise[]> {
     return this.exercises;
   }
 
-  getExerciseById(idBody, idExercise) {
+  getExerciseById(idBody, idExercise): Exercise {
     return this.exercises[idBody][idExercise];
   }
 
@@ -71,13 +71,21 @@ export class ExerciseService {
     return this.exercises[idBody][idExercise].deletable;
   }
 
-  addNewExercise(exercise) {
-    this.exercises[exercise.body].push(new Exercise(exercise.name, exercise.description));
+  addNewExercise(FormExercise): void {
+    this.exercises[FormExercise.idBody].push(new Exercise(FormExercise.name, FormExercise.description));
     // enregistrement sur la table firebase voir si besoin d'une id dans la base ??????(la j'utilise id du tableau)
   }
 
-  updateExercise() {
-
+  updateExercise(idBody, FormExercise: any): void {
+    console.log(FormExercise);
+    console.log(idBody);
+    if (FormExercise.idBody == idBody) {
+      this.exercises[FormExercise.idBody][FormExercise.id].name = FormExercise.name;
+      this.exercises[FormExercise.idBody][FormExercise.id].description = FormExercise.description;
+    } else {
+      this.deleteExercise(idBody, FormExercise.id);
+      this.addNewExercise(FormExercise);
+    }
   }
 
   deleteExercise(idBody, idExercise) {

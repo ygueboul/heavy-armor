@@ -14,6 +14,16 @@
       h3 {
         margin : 0;
         font-weight: 300;
+        margin-right: 110px;
+        display: flex;
+        align-items: flex-end;
+        span {
+
+        }
+        mat-icon {
+          color: $backgroundColorNav;
+          margin-left: 5px;
+        }
       }
       p {
         margin-bottom: 0;
