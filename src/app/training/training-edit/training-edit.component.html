@@ -1,0 +1,28 @@
+<!-- <h3 *ngIf="!deletable">Ajout d'une nouvelle séance</h3>
+<h3 *ngIf="deletable">Modification d'une séance</h3>
+
+<form class="form-Training" (ngSubmit)="onSubmit(TrainingForm.value)" #TrainingForm="ngForm">
+  <div class="container-Training">
+    <input type="hidden" name="id" [ngModel]="idTraining">
+    <mat-form-field>
+      <input matInput type="text" placeholder="Nom de l'exercice" required name="name" [ngModel]="Training?.name" #name="ngModel">
+
+      <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+        Nom de l'exercice obligatoire
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput placeholder="Description" name="description" [ngModel]="Training?.description"></textarea>
+    </mat-form-field>
+
+    <div class="button-form">
+      <button (click)="goToTrainings()" mat-raised-button>Annuler</button>
+      <button *ngIf="!deletable" type="submit" mat-raised-button color="warn" [disabled]="!TrainingForm.form.valid">Ajouter</button>
+
+      <button *ngIf="deletable" (click)="deleteTraining()" mat-raised-button>Effacer</button>
+      <button *ngIf="deletable" type="submit" mat-raised-button color="warn" [disabled]="!TrainingForm.form.valid">Modifier</button>
+    </div>
+
+  </div>
+</form> -->
