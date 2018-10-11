@@ -5,7 +5,7 @@ import { Exercise } from './exercise.model';
   providedIn: 'root'
 })
 export class ExerciseService {
-
+  idBody;
   bodys: String[] = [
     'pectoraux',
      'dos'
@@ -94,5 +94,13 @@ export class ExerciseService {
 
   getAllBodys() {
     return this.bodys;
+  }
+
+  setExpandPanel (idBody) {
+    this.idBody = idBody;
+  }
+
+  getExpandPanel () {
+    return this.idBody;
   }
 }

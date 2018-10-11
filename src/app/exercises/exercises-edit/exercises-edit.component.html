@@ -22,17 +22,20 @@
       </mat-select>
 
       <mat-error *ngIf="idBody.invalid && (idBody.dirty || idBody.touched)">
-        Partie du coprs obligatoire
+        Partie du corps obligatoire
       </mat-error>
     </mat-form-field>
 
 
-    <div class="button-form">
+    <div *ngIf="!deletable" class="button-form">
       <button (click)="goToExercises()" mat-raised-button>Annuler</button>
-      <button *ngIf="!deletable" type="submit" mat-raised-button color="warn" [disabled]="!ExerciseForm.form.valid">Ajouter</button>
+      <button type="submit" mat-raised-button color="warn" [disabled]="!ExerciseForm.form.valid">Ajouter</button>
+    </div>
 
-      <button *ngIf="deletable" (click)="deleteExercise()" mat-raised-button>Effacer</button>
-      <button *ngIf="deletable" type="submit" mat-raised-button color="warn" [disabled]="!ExerciseForm.form.valid">Modifier</button>
+    <div *ngIf="deletable" class="button-form">
+      <button (click)="goToExercises(idBody.value)" mat-raised-button>Annuler</button>
+      <button (click)="deleteExercise()" mat-raised-button>Effacer</button>
+      <button type="submit" mat-raised-button color="warn" [disabled]="!ExerciseForm.form.valid">Modifier</button>
     </div>
 
   </div>

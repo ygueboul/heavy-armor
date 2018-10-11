@@ -14,7 +14,7 @@ export class ExercisesEditComponent implements OnInit {
   deletable = false; // new = false / edit = false
   idBody;
   idExercise;
-  selected = 0; // partie du corps
+  selected = 0; // partie du corps sans le menu select
 
 
   constructor(private exerciseService: ExerciseService,
@@ -53,12 +53,12 @@ export class ExercisesEditComponent implements OnInit {
       // edit exercise
       this.exerciseService.updateExercise(this.idBody, FormExercise);
     }
-    this.goToExercises();
+    this.goToExercises(FormExercise.idBody);
   }
 
   deleteExercise(): void {
     this.exerciseService.deleteExercise(this.idBody, this.idExercise);
-    this.goToExercises();
+    this.goToExercises(this.idBody);
     // if (confirm("Are you sure you want to delete " + employee.Name + "?")) {
     //   this._employeeService.DeleteEmployee(employee.EmployeeId).subscribe(
     //      data => {
@@ -73,7 +73,8 @@ export class ExercisesEditComponent implements OnInit {
     // }
   }
 
-  goToExercises () {
+  goToExercises (idBody?) {
+    this.exerciseService.setExpandPanel(idBody);
     this.router.navigate(['/exercises']);
   }
 

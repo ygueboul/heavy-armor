@@ -1,5 +1,5 @@
 <mat-accordion>
-  <mat-expansion-panel [expanded]="indexBody === expand" *ngFor="let body of bodys;let indexBody = index">
+  <mat-expansion-panel [expanded]="indexBody == expand" *ngFor="let body of bodys;let indexBody = index">
     <mat-expansion-panel-header>
       <mat-panel-title>
           <h3>{{ body | titlecase }}</h3>

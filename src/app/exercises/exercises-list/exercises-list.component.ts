@@ -10,13 +10,16 @@ import { Exercise } from '../exercise.model';
 export class ExercisesListComponent implements OnInit {
   exercises: Array<Exercise[]>;
   bodys: String[];
-  expand = 0;
+  expand = null;
 
   constructor(private exerciseService: ExerciseService) { }
 
   ngOnInit() {
     this.exercises = this.exerciseService.getAllExercises();
     this.bodys = this.exerciseService.getAllBodys();
+
+    // ouvre le bon accordeon
+    this.expand = this.exerciseService.getExpandPanel();
   }
 
 }
