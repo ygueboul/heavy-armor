@@ -38,6 +38,21 @@ paths:
         required: true
         schema:
           $ref: "#/definitions/User"
+      - name: "username"
+        in: "query"
+        description: "Le pseudo de l'utilisateur"
+        required: true
+        type: "string"
+      - name: "email"
+        in: "query"
+        description: "Le pseudo de l'utilisateur"
+        required: true
+        type: "string"
+      - name: "password"
+        in: "query"
+        description: "Le pseudo de l'utilisateur"
+        required: true
+        type: "string"
       responses:
         default:
           description: "Opération réalisée avec succès"
