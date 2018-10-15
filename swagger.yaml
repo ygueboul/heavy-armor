@@ -57,7 +57,7 @@ paths:
         default:
           description: "Opération réalisée avec succès"
   /user/login:
-    get:
+    post:
       tags:
       - "user"
       summary: "Connexion d'un utilisateur"
