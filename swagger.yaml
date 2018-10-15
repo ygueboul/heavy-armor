@@ -13,7 +13,7 @@ host: "heavyarmor.swagger.io"
 basePath: "/"
 tags:
 - name: "user"
-  description: "Opération dur l'utilisateur"
+  description: "OpÃ©ration sur l'utilisateur"
   externalDocs:
     description: "Application de musculation"
     url: "http://heavyarmor.fr"
@@ -25,7 +25,7 @@ paths:
     post:
       tags:
       - "user"
-      summary: "Créer un utilisateur"
+      summary: "CrÃ©er un utilisateur"
       description: "Processus d'inscription."
       operationId: "createUser"
       produces:
@@ -34,13 +34,13 @@ paths:
       parameters:
       - in: "body"
         name: "body"
-        description: "Création de l'objet User"
+        description: "CrÃ©ation de l'objet User"
         required: true
         schema:
           $ref: "#/definitions/User"
       responses:
         default:
-          description: "Opération réalisée avec succès"
+          description: "OpÃ©ration rÃ©alisÃ©e avec succÃ¨s"
   /user/login:
     get:
       tags:
@@ -64,25 +64,21 @@ paths:
         type: "string"
       responses:
         200:
-          description: "Opération réamisée avec succès"
+          description: "OpÃ©ration rÃ©alisÃ©e avec succÃ¨s"
           schema:
             type: "string"
           headers:
-            X-Rate-Limit:
-              type: "integer"
-              format: "int32"
-              description: "calls per hour allowed by the user"
             X-Expires-After:
               type: "string"
               format: "date-time"
-              description: "date in UTC when token expires"
+              description: "date Ã  laquelle le jeton expire"
         400:
           description: "Pseudo et/ou mot de passe invalide"
   /user/logout:
     get:
       tags:
       - "user"
-      summary: "Déconnexion de l'utilisateur"
+      summary: "DÃ©connexion de l'utilisateur"
       description: ""
       operationId: "logoutUser"
       produces:
@@ -91,57 +87,20 @@ paths:
       parameters: []
       responses:
         default:
-          description: "Opération réalisée avec succès"
+          description: "OpÃ©ration rÃ©alisÃ©e avec succÃ¨s"
 securityDefinitions:
-  petstore_auth:
+  heavyarmor_auth:
     type: "oauth2"
     authorizationUrl: "http://heavyarmor.swagger.io/oauth/dialog"
     flow: "implicit"
     scopes:
       write:pets: "Modifier les exercices"
-      read:pets: "Accéder aux exercices"
+      read:pets: "AccÃ©der aux exercices"
   api_key:
     type: "apiKey"
     name: "api_key"
     in: "header"
 definitions:
-  Order:
-    type: "object"
-    properties:
-      id:
-        type: "integer"
-        format: "int64"
-      petId:
-        type: "integer"
-        format: "int64"
-      quantity:
-        type: "integer"
-        format: "int32"
-      shipDate:
-        type: "string"
-        format: "date-time"
-      status:
-        type: "string"
-        description: "Order Status"
-        enum:
-        - "placed"
-        - "approved"
-        - "delivered"
-      complete:
-        type: "boolean"
-        default: false
-    xml:
-      name: "Order"
-  Category:
-    type: "object"
-    properties:
-      id:
-        type: "integer"
-        format: "int64"
-      name:
-        type: "string"
-    xml:
-      name: "Category"
   User:
     type: "object"
     properties:
@@ -150,69 +109,25 @@ definitions:
         format: "int64"
       username:
         type: "string"
-      firstName:
-        type: "string"
-      lastName:
-        type: "string"
       email:
         type: "string"
+      age:
+       type: "integer"
+       format: "int32"
+      weight:
+       type: "integer"
+       format: "int32"
+      tall:
+       type: "integer"
+       format: "int32"
       password:
-        type: "string"
-      phone:
         type: "string"
       userStatus:
         type: "integer"
         format: "int32"
-        description: "User Status"
+        description: "Status de l'utilisateur"
     xml:
       name: "User"
-  Tag:
-    type: "object"
-    properties:
-      id:
-        type: "integer"
-        format: "int64"
-      name:
-        type: "string"
-    xml:
-      name: "Tag"
-  Pet:
-    type: "object"
-    required:
-    - "name"
-    - "photoUrls"
-    properties:
-      id:
-        type: "integer"
-        format: "int64"
-      category:
-        $ref: "#/definitions/Category"
-      name:
-        type: "string"
-        example: "doggie"
-      photoUrls:
-        type: "array"
-        xml:
-          name: "photoUrl"
-          wrapped: true
-        items:
-          type: "string"
-      tags:
-        type: "array"
-        xml:
-          name: "tag"
-          wrapped: true
-        items:
-          $ref: "#/definitions/Tag"
-      status:
-        type: "string"
-        description: "pet status in the store"
-        enum:
-        - "available"
-        - "pending"
-        - "sold"
-    xml:
-      name: "Pet"
   ApiResponse:
     type: "object"
     properties:
