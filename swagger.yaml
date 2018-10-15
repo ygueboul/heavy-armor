@@ -3,9 +3,9 @@ info:
   description: "Le projet Heavy Armor"
   version: "1.0.0"
   title: "Heavy Armor"
-  termsOfService: "http://swagger.io/terms/"
+  termsOfService: "http://heavyarmor.fr/terms/"
   contact:
-    email: "heavyarmor@swagger.io"
+    email: "gueboul.youcef@oostaoo.com"
   license:
     name: "Apache 2.0"
     url: "http://www.apache.org/licenses/LICENSE-2.0.html"
@@ -45,12 +45,12 @@ paths:
         type: "string"
       - name: "email"
         in: "query"
-        description: "Le pseudo de l'utilisateur"
+        description: "L'email de l'utilisateur"
         required: true
         type: "string"
       - name: "password"
         in: "query"
-        description: "Le pseudo de l'utilisateur"
+        description: "Le mot de passe de l'utilisateur"
         required: true
         type: "string"
       responses:
@@ -106,11 +106,11 @@ paths:
 securityDefinitions:
   heavyarmor_auth:
     type: "oauth2"
-    authorizationUrl: "http://heavyarmor.swagger.io/oauth/dialog"
+    authorizationUrl: "http://localhost:8000/oauth/dialog"
     flow: "implicit"
     scopes:
-      write:pets: "Modifier les exercices"
-      read:pets: "Accéder aux exercices"
+      write:exercices: "Modifier les exercices"
+      read:exercices: "Accéder aux exercices"
   api_key:
     type: "apiKey"
     name: "api_key"
