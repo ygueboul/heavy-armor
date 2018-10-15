@@ -1,0 +1,228 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "description": "Le projet Heavy Armor",
+    "version": "1.0.0",
+    "title": "Heavy Armor",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "email": "heavyarmor@swagger.io"
+    },
+    "license": {
+      "name": "Apache 2.0",
+      "url": "http://www.apache.org/licenses/LICENSE-2.0.html"
+    }
+  },
+  "host": "heavyarmor.swagger.io",
+  "basePath": "/",
+  "tags": [
+    {
+      "name": "user",
+      "description": "Opération sur l'utilisateur",
+      "externalDocs": {
+        "description": "Application de musculation",
+        "url": "http://heavyarmor.fr"
+      }
+    }
+  ],
+  "schemes": [
+    "https",
+    "http"
+  ],
+  "paths": {
+    "/user": {
+      "post": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Créer un utilisateur",
+        "description": "Processus d'inscription.",
+        "operationId": "createUser",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "description": "Création de l'objet User",
+            "required": true,
+            "schema": {
+              "$ref": "#/definitions/User"
+            }
+          },
+          {
+            "name": "username",
+            "in": "query",
+            "description": "Le pseudo de l'utilisateur",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "email",
+            "in": "query",
+            "description": "Le pseudo de l'utilisateur",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "Le pseudo de l'utilisateur",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "default": {
+            "description": "Opération réalisée avec succès"
+          }
+        }
+      }
+    },
+    "/user/login": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Connexion d'un utilisateur",
+        "description": "",
+        "operationId": "loginUser",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "username",
+            "in": "query",
+            "description": "Le pseudo de l'utilisateur",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "password",
+            "in": "query",
+            "description": "Le mot de passe de l'utilisateur",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Opération réalisée avec succès",
+            "schema": {
+              "type": "string"
+            },
+            "headers": {
+              "X-Expires-After": {
+                "type": "string",
+                "format": "date-time",
+                "description": "date à laquelle le jeton expire"
+              }
+            }
+          },
+          "400": {
+            "description": "Pseudo et/ou mot de passe invalide"
+          }
+        }
+      }
+    },
+    "/user/logout": {
+      "get": {
+        "tags": [
+          "user"
+        ],
+        "summary": "Déconnexion de l'utilisateur",
+        "description": "",
+        "operationId": "logoutUser",
+        "produces": [
+          "application/xml",
+          "application/json"
+        ],
+        "parameters": [],
+        "responses": {
+          "default": {
+            "description": "Opération réalisée avec succès"
+          }
+        }
+      }
+    }
+  },
+  "securityDefinitions": {
+    "heavyarmor_auth": {
+      "type": "oauth2",
+      "authorizationUrl": "http://heavyarmor.swagger.io/oauth/dialog",
+      "flow": "implicit",
+      "scopes": {
+        "write:pets": "Modifier les exercices",
+        "read:pets": "Accéder aux exercices"
+      }
+    },
+    "api_key": {
+      "type": "apiKey",
+      "name": "api_key",
+      "in": "header"
+    }
+  },
+  "definitions": {
+    "User": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "integer",
+          "format": "int64"
+        },
+        "username": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string"
+        },
+        "age": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "weight": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "tall": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "password": {
+          "type": "string"
+        },
+        "userStatus": {
+          "type": "integer",
+          "format": "int32",
+          "description": "Status de l'utilisateur"
+        }
+      },
+      "xml": {
+        "name": "User"
+      }
+    },
+    "ApiResponse": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "type": {
+          "type": "string"
+        },
+        "message": {
+          "type": "string"
+        }
+      }
+    }
+  },
+  "externalDocs": {
+    "description": "Find out more about Swagger",
+    "url": "http://swagger.io"
+  }
+}
