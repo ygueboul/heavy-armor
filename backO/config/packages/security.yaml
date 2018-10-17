@@ -1,14 +1,32 @@
 security:
+    encoders:
+        App\Entity\User:
+            algorithm: bcrypt
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        in_memory: { memory: ~ }
+        #in_memory: { memory: ~ }
+        in_database:
+            entity:
+                class: App\Entity\User
+                property: apiKey
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: true
+            anonymous: ~
+            logout: ~
 
+            guard:
+                authenticators:
+                    - App\Security\TokenAuthenticator
+
+            #provider: in_database
+
+            #logout:
+                #path: deconnexion
+                #target: site ### A MODIFIER !!!!!!
             # activate different ways to authenticate
 
             # http_basic: true
