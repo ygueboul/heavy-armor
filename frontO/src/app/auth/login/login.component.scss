@@ -1,0 +1,27 @@
+h3 {
+  text-align: center;
+  font-weight: 300;
+}
+.form-exercise {
+  min-width: 150px;
+  max-width: 500px;
+  margin: 0 auto;
+  .container-exercise {
+    display: flex;
+    flex-direction: column;
+    margin: 20px 40px 0;
+    padding-bottom: 20px;
+    mat-form-field {
+      color: white;
+    }
+    .button-form {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      button {
+        flex-grow: 1;
+        margin: 0 5px;
+      }
+    }
+  }
+}

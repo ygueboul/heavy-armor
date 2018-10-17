@@ -1,0 +1,30 @@
+<h3>Inscription</h3>
+
+<form class="form-exercise" (ngSubmit)="onSubmit(signupForm.value)" #SignupForm="ngForm">
+  <div class="container-exercise">
+    <mat-form-field>
+      <input matInput type="text" placeholder="pseudo" required name="name" ngModel #name="ngModel">
+
+      <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
+        pseudo obligatoire
+      </mat-error>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput type="email" placeholder="Votre email" required name="email" ngModel></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput type="password" placeholder="mot de passe" required name="password" ngModel></textarea>
+    </mat-form-field>
+
+    <mat-form-field>
+      <textarea matInput type="password" placeholder="mot de passe" required name="password" ngModel></textarea>
+    </mat-form-field>
+
+
+
+    <button type="submit" mat-raised-button color="warn" [disabled]="!SignupForm.form.valid">Inscription</button>
+
+  </div>
+</form>
