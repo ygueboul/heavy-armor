@@ -1,19 +1,21 @@
 <h3>Connexion</h3>
 
-<form class="form-exercise" (ngSubmit)="onSubmit(loginForm.value)" #LoginForm="ngForm">
-  <div class="container-exercise">
+<form class="form-login" (ngSubmit)="onSubmit(LoginForm.value)" #LoginForm="ngForm">
+  <div class="container-login">
+
     <mat-form-field>
       <input matInput type="text" placeholder="pseudo" required name="name" ngModel #name="ngModel">
-
       <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
         pseudo obligatoire
       </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-      <textarea matInput type="password" placeholder="mot de passe" required name="password" ngModel></textarea>
+      <input matInput type="password" placeholder="mot de passe" required name="password" ngModel #password="ngModel">
+      <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
+        mot de passe obligatoire
+      </mat-error>
     </mat-form-field>
-
 
     <button type="submit" mat-raised-button color="warn" [disabled]="!LoginForm.form.valid">Connexion</button>
 
