@@ -3,10 +3,9 @@
 <form class="form-signup" (ngSubmit)="onSubmit(SignupForm.value)" #SignupForm="ngForm">
   <div class="container-signup">
     <mat-form-field>
-      <input matInput type="text" placeholder="pseudo" required name="name" ngModel #name="ngModel">
-
+      <input matInput type="text" placeholder="Pseudo" required name="name" ngModel #name="ngModel">
       <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
-        pseudo obligatoire
+        Pseudo obligatoire
       </mat-error>
     </mat-form-field>
 
@@ -17,20 +16,28 @@
       </mat-error>
     </mat-form-field>
 
-    <mat-form-field>
-      <input matInput type="password" placeholder="mot de passe"  minlength="8" required name="password" ngModel #password="ngModel">
-      <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
-        Email obligatoire
-      </mat-error>
-      <mat-error *ngIf="password.errors.minlength">
-        il faut un mot de passe de plus de 8.
-      </mat-error>
+    <div ngModelGroup="passwords" #passwords="ngModelGroup" appCheckPassword>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Mot de passe" minlength="8" #passwordA="ngModel" name="passwordA" required ngModel>
+        <mat-error *ngIf="passwordA.invalid && (passwordA.dirty || passwordA.touched)">
+          Mot de passe obligatoire
+        </mat-error>
+        <mat-error *ngIf="passwordA.errors?.minlength">
+          Le mot de passe doit comporter 8 cractères au minimume.
+        </mat-error>
+      </mat-form-field>
 
-    </mat-form-field>
+      <mat-form-field>
+        <input matInput type="password" placeholder="Confirmer le mot de passe" #passwordB="ngModel" name="passwordB" required ngModel>
+        <mat-error *ngIf="passwordB.invalid && (passwordA.dirty || passwordA.touched)">
+          Please confirm your password.
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <input matInput type="password" placeholder="mot de passe"  minlength="8" required name="password" ngModel>
-    </mat-form-field>
+      <mat-error *ngIf="passwords.errors?.passwordCheck && (passwordB.dirty || passwordB.touched)">
+        Passwords do not match.
+      </mat-error>
+    </div>
 
     <button type="submit" mat-raised-button color="warn" [disabled]="!SignupForm.form.valid">Inscription</button>
 

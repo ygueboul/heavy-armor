@@ -19,6 +19,8 @@ import { ExercisesEditComponent } from './exercises/exercises-edit/exercises-edi
 import { TrainingEditComponent } from './training/training-edit/training-edit.component';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+/* directive */
+import { CheckPasswordDirective } from './auth/signup/check-password.directive';
 
 @NgModule({
   declarations: [
@@ -33,7 +35,8 @@ import { SignupComponent } from './auth/signup/signup.component';
     ExercisesEditComponent,
     TrainingEditComponent,
     LoginComponent,
-    SignupComponent
+    SignupComponent,
+    CheckPasswordDirective
   ],
   imports: [
     BrowserModule,
