@@ -5,37 +5,40 @@
     <mat-form-field>
       <input matInput type="text" placeholder="Pseudo" required name="name" ngModel #name="ngModel">
       <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
-        Pseudo obligatoire
+        Pseudo obligatoire.
       </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="email" placeholder="Votre email" required name="email" ngModel #email="ngModel">
-      <mat-error *ngIf="email.invalid && (email.dirty || email.touched)">
-        Email obligatoire
+      <input matInput type="email" placeholder="Votre email"  email required name="email" ngModel #email="ngModel">
+      <mat-error *ngIf="email.errors?.required && (email.dirty || email.touched)">
+        Email obligatoire.
       </mat-error>
+      <mat-error *ngIf="email.errors?.email && (email.dirty || email.touched)">
+          Email non valide.
+        </mat-error>
     </mat-form-field>
 
-    <div ngModelGroup="passwords" #passwords="ngModelGroup" appCheckPassword>
+    <div class="checkPassword" ngModelGroup="passwords" #passwords="ngModelGroup" appCheckPassword>
       <mat-form-field>
         <input matInput type="password" placeholder="Mot de passe" minlength="8" #passwordA="ngModel" name="passwordA" required ngModel>
-        <mat-error *ngIf="passwordA.invalid && (passwordA.dirty || passwordA.touched)">
-          Mot de passe obligatoire
+        <mat-error *ngIf="passwordA.errors?.required && (passwordA.dirty || passwordA.touched)">
+          Mot de passe obligatoire.
         </mat-error>
         <mat-error *ngIf="passwordA.errors?.minlength">
-          Le mot de passe doit comporter 8 cractères au minimume.
+          Votre mot de passe doit comporter 8 caractères minimum.
         </mat-error>
       </mat-form-field>
 
       <mat-form-field>
         <input matInput type="password" placeholder="Confirmer le mot de passe" #passwordB="ngModel" name="passwordB" required ngModel>
         <mat-error *ngIf="passwordB.invalid && (passwordA.dirty || passwordA.touched)">
-          Please confirm your password.
+          Merci de confirmer votre mot de passe.
         </mat-error>
       </mat-form-field>
 
       <mat-error *ngIf="passwords.errors?.passwordCheck && (passwordB.dirty || passwordB.touched)">
-        Passwords do not match.
+        Les mots de passe ne correspondent pas.
       </mat-error>
     </div>
 
