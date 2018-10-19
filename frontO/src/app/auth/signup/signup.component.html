@@ -15,9 +15,13 @@
         Email obligatoire.
       </mat-error>
       <mat-error *ngIf="email.errors?.email && (email.dirty || email.touched)">
-          Email non valide.
-        </mat-error>
+        Email non valide.
+      </mat-error>
     </mat-form-field>
+
+    <mat-error *ngIf="email.value == bdd">
+      Le nom {{ email.value }} existe deja.
+    </mat-error>
 
     <div class="checkPassword" ngModelGroup="passwords" #passwords="ngModelGroup" appCheckPassword>
       <mat-form-field>

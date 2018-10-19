@@ -4,18 +4,22 @@
   <div class="container-login">
 
     <mat-form-field>
-      <input matInput type="text" placeholder="pseudo" required name="name" ngModel #name="ngModel">
+      <input matInput type="text" placeholder="Votre pseudo" required name="name" ngModel #name="ngModel">
       <mat-error *ngIf="name.invalid && (name.dirty || name.touched)">
         pseudo obligatoire
       </mat-error>
     </mat-form-field>
 
     <mat-form-field>
-      <input matInput type="password" placeholder="mot de passe" required name="password" ngModel #password="ngModel">
+      <input matInput type="password" placeholder="Votre mot de passe" required name="password" ngModel #password="ngModel">
       <mat-error *ngIf="password.invalid && (password.dirty || password.touched)">
         mot de passe obligatoire
       </mat-error>
     </mat-form-field>
+
+    <!-- <mat-error *ngIf="password.value != motDePasse">
+      Le (nom d'utilisateur / email) ou mot de passe est incorrect.
+    </mat-error> -->
 
     <button type="submit" mat-raised-button color="warn" [disabled]="!LoginForm.form.valid">Connexion</button>
 

@@ -1,8 +1,16 @@
-<div>
-  <h3>Creation d'une nouvelle séance</h3>
-  <button class="new-element" mat-fab color="primary" [routerLink]='["/training/new"]'><mat-icon>add</mat-icon></button>
-</div>
+<div *ngIf="authService.token">
+  <div>
+    <h3>Creation d'une nouvelle séance</h3>
+    <button class="new-element" mat-fab color="primary" [routerLink]='["/training/new"]'><mat-icon>add</mat-icon></button>
+  </div>
 
-<app-training-list></app-training-list>
+  <app-training-list></app-training-list>
+</div>
+<div *ngIf="!authService.token">
+  <div>
+    <h3>Acces refusé sans connexion</h3>
+    <button class="new-element" mat-raised-button color="warn" [routerLink]='["/"]'>Page accueil</button>
+  </div>
+</div>
 
 

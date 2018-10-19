@@ -6,26 +6,29 @@
           <mat-icon>more_vert</mat-icon>
       </button>
       <mat-menu #menu="matMenu">
-        <button mat-menu-item routerLink="/signup">
+        <button mat-menu-item routerLink="/signup" [disabled]="authService.token">
           <mat-icon>person_add</mat-icon>
           <span>Inscription</span>
         </button>
-        <button mat-menu-item routerLink="/login">
+        <button mat-menu-item routerLink="/login" [disabled]="authService.token">
           <mat-icon>person</mat-icon>
-          <span>Login</span>
+          <span>Connexion</span>
         </button>
-        <button mat-menu-item disabled>
+        <button mat-menu-item (click)="onLogout()" [disabled]="!authService.token">
           <mat-icon>power_settings_new</mat-icon>
           <span>Logout</span>
         </button>
       </mat-menu>
     </div>
   </section>
-
-  <ul class="navigation-items">
+  <ul *ngIf="authService.token" class="navigation-items">
     <li routerLinkActive="active"><a routerLink="/training">Séances</a></li>
     <li routerLinkActive="active"><a routerLink="/exercises">Exercices</a></li>
     <li routerLinkActive="active"><a routerLink="/statistical">Statistiques</a></li>
+  </ul>
+  <ul *ngIf="!authService.token" class="navigation-items">
+    <li routerLinkActive="active"><a routerLink="/signup">Inscription</a></li>
+    <li routerLinkActive="active"><a routerLink="/login">Connexion</a></li>
   </ul>
 </div>
 

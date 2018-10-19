@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./signup.component.scss']
 })
 export class SignupComponent implements OnInit {
-
+  // bdd = 'email'; si le eail et disponible
   constructor(private router: Router) { }
 
   ngOnInit() {
@@ -15,7 +15,9 @@ export class SignupComponent implements OnInit {
 
   onSubmit(signupForm) {
     console.log(signupForm);
-    this.router.navigate(['/training']);
+    // condition si le compte est cree peut etre avec le eamil et le mot de passe deja presremplis
+    this.router.navigate(['/login']);
+    // sinon email existe deja ou mot de passe ou autre probleme
   }
 
 }
